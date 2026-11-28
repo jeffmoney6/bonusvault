@@ -49,8 +49,8 @@ function blocked(status = 451) {
 function isSearchBot(request) {
   const ua = request.headers.get("user-agent") || "";
   const org = (request.cf && request.cf.asOrganization) || "";
-  if (/Googlebot|Google-InspectionTool|AdsBot-Google|Storebot-Google/i.test(ua) && /Google/i.test(org)) return true;
-  if (/bingbot|BingPreview/i.test(ua) && /Microsoft/i.test(org)) return true;
+  if (/google/i.test(ua) && /Google/i.test(org)) return true;
+  if (/bing|msnbot|microsoft/i.test(ua) && /Microsoft/i.test(org)) return true;
   return false;
 }
 
