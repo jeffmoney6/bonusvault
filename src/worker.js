@@ -89,7 +89,7 @@ export default {
       return env.ASSETS.fetch(request);
     }
     // Google Search Console verification file – must be reachable for Google's checker.
-    if (/^\/google[0-9a-f]+\.html$/.test(path)) {
+    if (/^\/google[0-9a-f]+(\.html)?$/.test(path)) {
       return env.ASSETS.fetch(request);
     }
     // Static files (CSS, images) are harmless on their own.
