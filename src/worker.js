@@ -64,6 +64,11 @@ function allowedCasinos(cf) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    // Move everything to the main domain: old workers.dev address and www -> https://bonusvaultcodes.com
+    const MAIN = "bonusvaultcodes.com";
+    if (url.hostname !== MAIN) {
+      return Response.redirect("https://" + MAIN + url.pathname + url.search, 301);
+    }
     const origin = url.origin;
     const path = url.pathname;
 
